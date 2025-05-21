@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c306991a-dda9-4811-92cc-228df951c083" name="Changes" comment="'отчет готов'" />
+    <list default="true" id="c306991a-dda9-4811-92cc-228df951c083" name="Changes" comment="'отчет готов'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,25 +52,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for test_create_order.TestCreateOrder.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_create_order.TestCreateOrder.test_create_order_authenticated_user_success.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_create_order.TestCreateOrder.test_create_order_invalid_ingredients_authenticated_user_expected_error.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_authentication.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_create_order.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_registration.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_user_orders.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_user_update.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.helpers.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Huawei/PycharmProjects/Diplom/diplom_2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for test_create_order.TestCreateOrder.executor": "Run",
+    "Python tests.Python tests for test_create_order.TestCreateOrder.test_create_order_authenticated_user_success.executor": "Run",
+    "Python tests.Python tests for test_create_order.TestCreateOrder.test_create_order_invalid_ingredients_authenticated_user_expected_error.executor": "Run",
+    "Python tests.Python tests in test_authentication.py.executor": "Run",
+    "Python tests.Python tests in test_create_order.py.executor": "Run",
+    "Python tests.Python tests in test_registration.py.executor": "Run",
+    "Python tests.Python tests in test_user_orders.py.executor": "Run",
+    "Python tests.Python tests in test_user_update.py.executor": "Run",
+    "Python.data.executor": "Run",
+    "Python.helpers.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop__2test",
+    "last_opened_file_path": "C:/Users/Huawei/PycharmProjects/Diplom/diplom_2",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python tests.Python tests for test_create_order.TestCreateOrder.test_create_order_invalid_ingredients_authenticated_user_expected_error">
     <configuration name="Python tests for test_create_order.TestCreateOrder" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="diplom_2" />
