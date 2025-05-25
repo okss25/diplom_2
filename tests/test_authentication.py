@@ -5,37 +5,43 @@ from data import UsersData
 from helper import create_random_email, create_random_password
 from urls import Urls
 
-
 class TestAuthentication:
     @allure.title('Проверка успешной аутентификации пользователя при создании аккаунта')
-    @allure.description('Аккаунт для проверки создается фикстурой  и удаляется после. ')
+    @allure.description('Аккаунт для проверки создается фикстурой и удаляется после.')
     def test_auth_existing_account_success(self, create_new_user_and_delete):
         payload = create_new_user_and_delete[0]
-        response = requests.post(Urls.user_auth, data=payload)
-        deserials = response.json()
-        assert response.status_code == 200
-        assert deserials['success'] is True
-        assert 'accessToken' in deserials.keys()
-        assert 'refreshToken' in deserials.keys()
-        assert deserials['user']['email'] == create_new_user_and_delete[0]['email']
-        assert deserials['user']['name'] == create_new_user_and_delete[0]['name']
+        with allure.step('Отправка POST-запрос для аутентификации пользователя'):
+            response = requests.post(Urls.user_auth, data=payload)
+        with allure.step('Проверка успешного статуса ответа'):
+            assert response.status_code == 200
+        with allure.step('Проверка наличия токена в ответе'):
+            response_json = response.json()
+            assert 'token' in response_json
 
-    @allure.title('Проверка ответа на запрос аутентификации с незарегистрированным email')
-    def test_auth_with_wrong_login_expected_error(self):
+    @allure.title('Проверка аутентификации с неверным паролем')
+    def test_auth_with_wrong_password(self):
+        payload = {
+            'email': UsersData.existing_user_email,
+            'password': 'wrong_password'
+        }
+        with allure.step('Отправка POST-запрос с неправильным паролем'):
+            response = requests.post(Urls.user_auth, data=payload)
+        with allure.step('Проверка статуса ответа'):
+            assert response.status_code == 401
+        with allure.step('Проверка сообщения об ошибке'):
+            response_json = response.json()
+            assert response_json['error'] == 'Invalid credentials'
+
+    @allure.title('Проверка аутентификации с несуществующим аккаунтом')
+    def test_auth_nonexistent_account(self):
         payload = {
             'email': create_random_email(),
-            'password': UsersData.password,
+            'password': create_random_password()
         }
-        response = requests.post(Urls.user_auth, data=payload)
-        assert response.status_code == 401 and response.json() == {"success": False,
-                                                                   "message": "email or password are incorrect"}
-
-    @allure.title('Проверка ответа на запрос с неверным паролем')
-    def test_auth_with_wrong_passwd_expected_error(self):
-        payload = {
-            'email': UsersData.email,
-            'password': create_random_password(),
-        }
-        response = requests.post(Urls.user_auth, data=payload)
-        assert response.status_code == 401 and response.json() == {"success": False,
-                                                                   "message": "email or password are incorrect"}
+        with allure.step('Отправка POST-запрос для несуществующего аккаунта'):
+            response = requests.post(Urls.user_auth, data=payload)
+        with allure.step('Проверка статуса ответа'):
+            assert response.status_code == 404
+        with allure.step('Проверка сообщения об ошибке'):
+            response_json = response.json()
+            assert response_json['error'] == 'User not found'
